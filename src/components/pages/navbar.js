@@ -68,7 +68,7 @@ const Navbar = () => {
       </div>
       <ul className="hidden md:flex">
         <li>
-          <Link to="Home" smooth={true} duration={500}>
+          <Link to="/home" smooth={true} duration={500}>
             Home
           </Link>
         </li>
@@ -78,7 +78,8 @@ const Navbar = () => {
           </Link>
         </li> */}
         <li>
-          <Link to="leaderboard" smooth={true} duration={500}>
+          
+          <Link to="/leaderboard"smooth={true} duration={500}>
             LeaderBoard
           </Link>
         </li>

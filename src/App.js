@@ -10,29 +10,21 @@ import Footer from "./components/pages/footer.js"
 import Leaderboard from "./leaderboard/leaderboard.js"
 import Activitypage from "./components/pages/activityPage.js"
 import Addactivity from "./components/pages/Addactivity"
-
+import { useNavigate } from "react-router-dom"
 function App() {
+  const Navigate = useNavigate();
   return (
     <>
-    <Navbar/>
-    <BrowserRouter>
+
+      <Navbar />
       <Routes>
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/home" element={< Home /> }/>
-        
+        <Route path="/" element={< Home />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/addactivity" element={<Addactivity />} />
+        <Route path="/activity" element={<Activitypage />} />
       </Routes>
-    </BrowserRouter>
     </>
-    // <div> 
-    //   <Auth/>
-    //   <Navbar/>
-    //   <Home/>
-    //   <Leaderboard/>
-    //   <Activitypage/>
-    //   <Addactivity/>
-    //   <Footer/>
-     
-    // </div>
+   
   )
 }
 

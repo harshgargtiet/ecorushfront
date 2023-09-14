@@ -4,6 +4,7 @@ import React from "react";
 // import Imageeee from "../../assets/3.png";
 import {BrowserRouter,Routes, Route, useNavigate} from 'react-router-dom';
 import { Link } from 'react-scroll';
+import Leaderboard from '../../leaderboard/leaderboard'
 //import Addactivity from './Addactivity.js';
 
 const Home = () => {
@@ -56,7 +57,11 @@ const Home = () => {
                 </button>
                 </Link>
                
-             
+                <Routes>
+                  {/* <Route path="/leaderboard" element={<Leaderboard />} /> */}
+                  {/* <Route path="/addactivity" element={<Addactivity />} />
+                  <Route path="/activity" element={<Activitypage />} /> */}
+                </Routes>
 
               </div>
             </div>
