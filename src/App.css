@@ -5,7 +5,7 @@
 }
 
 .Auth-form-container {
-  /* background:  url('C:\Users\asus\Desktop\Ecorush\ecofrontend\src\bg.png'); */
+  background:  url('./bg.png');
   background-size: cover;
   display: flex;
 

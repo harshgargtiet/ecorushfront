@@ -36,7 +36,7 @@ function between(data, between){
 
     let filter = data.filter(val => {
         let userDate = new Date(val.dt);
-        if (between == 0) return val;
+        if (between === 0) return val;
         return previous <= userDate && today >= userDate;
     })
 
