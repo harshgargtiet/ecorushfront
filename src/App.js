@@ -11,20 +11,27 @@ import Leaderboard from "./leaderboard/leaderboard.js"
 import Activitypage from "./components/pages/activityPage.js"
 import Addactivity from "./components/pages/Addactivity"
 import { useNavigate } from "react-router-dom"
+
 function App() {
   const Navigate = useNavigate();
   return (
     <>
 
       <Navbar />
-      <Routes>
-        <Route path="/" element={< Home />} />
-        <Route path="/leaderboard" element={<Leaderboard />} />
-        <Route path="/addactivity" element={<Addactivity />} />
-        <Route path="/activity" element={<Activitypage />} />
-      </Routes>
+      <div className="App">
+
+        <Routes>
+          <Route path="/" element={< Home />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/addactivity" element={<Addactivity />} />
+
+          <Route path="/activity" element={<Activitypage />} />
+        </Routes>
+        
+      </div>
+
     </>
-   
+
   )
 }
 

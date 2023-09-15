@@ -1,5 +1,7 @@
-// DynamicForm.js
+//DynamicForm.js
 import React, { useState } from 'react';
+import '../../App.css'
+import axios from 'axios';
 
 const Addactivity = () => {
   const [formData, setFormData] = useState({
@@ -9,7 +11,7 @@ const Addactivity = () => {
     PlantationLoc: '',
     Evidence: '',
     StartLoc: '',
-    EndLoc : '',
+    EndLoc: '',
     ccawarded: '',
     distance: '',
     image: null,
@@ -30,12 +32,32 @@ const Addactivity = () => {
     setFormData({ ...formData, selectedOption });
   };
 
+  const afforestationUrl = `http://localhost:5282/afforestation/addAfforestation`;
+
+  const submitFormData = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(afforestationUrl, formData); // Pass formData to the POST request
+      if (response.status === 200) {
+        alert("POSTED");
+      } else {
+        // Handle other status codes if needed
+        console.error('Upload failed:', response.status);
+      }
+
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
   return (
     <div>
-      <h1>Dynamic Form</h1>
-      <label>
-        Select an option:
-        <select name="selectedOption" onChange={handleSelectChange} value={formData.selectedOption}>
+      <h1 className='Margin1'>Add an Activity</h1>
+      <label className='Margin'>
+        Select activity category: <t />
+        <select name="selectedOption" onChange={handleSelectChange} value={formData.selectedOption} className='FormText1'>
           <option value="">Select</option>
           <option value="afforestation">Afforestation</option>
           <option value="carpooling">Carpooling</option>
@@ -44,45 +66,47 @@ const Addactivity = () => {
         </select>
       </label>
 
+
       {formData.selectedOption === 'afforestation' && (
         <div>
-          <label>
-            Email Id:
+          <br />
+          <label className='Margin'>
+            Email Id:<t />
             <input
               type="text"
               name="EmailId"
               value={formData.EmailId}
               onChange={handleInputChange}
-            />
+              className='FormText' />
           </label>
           <br />
-          <label>
-            Activity Date:
+          <label className='Margin'>
+            Activity Date:<t />
             <input
               type="Date"
               name="ActivityDate"
               value={formData.ActivityDate}
-              onChange={handleInputChange}
+              onChange={handleInputChange} className='FormText'
             />
           </label>
           <br />
-          <label>
-            Plantation Location:
+          <label className='Margin'>
+            Plantation Location:<t />
             <input
               type="text"
               name="PlantationLoc"
               value={formData.PlantationLoc}
-              onChange={handleInputChange}
+              onChange={handleInputChange} className='FormText'
             />
           </label>
           <br />
-          <label>
-            Upload Image:
-            <input 
-            type="file" 
-            name="image" 
-            accept="image/*" 
-            onChange={handleImageChange} 
+          <label className='Margin'>
+            Upload Image:<t />
+            <input
+              type="file"
+              name="image"
+              accept="image/*"
+              onChange={handleImageChange} className='FormText'
             />
           </label>
         </div>
@@ -91,159 +115,170 @@ const Addactivity = () => {
 
       {formData.selectedOption === 'carpooling' && (
         <div>
-          <label>
-            Email Id:
+          <label className='Margin'>
+            <br />
+            Email Id: <t /> {" "}
             <input
               type="text"
               name="EmailId"
               value={formData.EmailId}
-              onChange={handleInputChange}
+              onChange={handleInputChange} className='FormText'
             />
           </label>
           <br />
-          <label>
-            Activity Date:
+          <label className='Margin'>
+            Activity Date:<t />
             <input
               type="Date"
               name="ActivityDate"
               value={formData.ActivityDate}
-              onChange={handleInputChange}
+              onChange={handleInputChange} className='FormText'
             />
           </label>
           <br />
-          <label>
-            Start Location:
+          <label className='Margin'>
+            Start Location:<t />
             <input
               type="text"
               name="StartLoc"
               value={formData.StartLoc}
-              onChange={handleInputChange}
+              onChange={handleInputChange} className='FormText'
             />
           </label>
           <br />
-          <label>
-            End Location:
+          <label className='Margin'>
+            End Location:<t />
             <input
               type="text"
               name="EndLoc"
               value={formData.EndLoc}
-              onChange={handleInputChange}
+              onChange={handleInputChange} className='FormText'
             />
           </label>
           <br />
-          <label>
-            Upload Image:
-            <input 
-            type="file" 
-            name="image" 
-            accept="image/*" 
-            onChange={handleImageChange} 
+          <label className='Margin'>
+            Upload Image:<t />
+            <input
+              type="file"
+              name="image"
+              accept="image/*"
+              onChange={handleImageChange} className='FormText'
             />
           </label>
         </div>
       )}
 
-{formData.selectedOption === 'evTravel' && (
+      {formData.selectedOption === 'evTravel' && (
         <div>
-          <label>
-            Email Id:
+          <br />
+          <label className='Margin'>
+            Email Id:<t />
             <input
               type="text"
               name="EmailId"
               value={formData.EmailId}
-              onChange={handleInputChange}
+              onChange={handleInputChange} className='FormText'
             />
           </label>
           <br />
-          <label>
-            Activity Date:
+          <label className='Margin'>
+            Activity Date:<t />
             <input
               type="Date"
               name="ActivityDate"
               value={formData.ActivityDate}
-              onChange={handleInputChange}
+              onChange={handleInputChange} className='FormText'
             />
           </label>
           <br />
-          <label>
-            Start Location:
+          <label className='Margin'>
+            Start Location:<t />
             <input
               type="text"
               name="StartLoc"
               value={formData.StartLoc}
-              onChange={handleInputChange}
+              onChange={handleInputChange} className='FormText'
             />
           </label>
           <br />
-          <label>
-            End Location:
+          <label className='Margin'>
+            End Location:<t />
             <input
               type="text"
               name="EndLoc"
               value={formData.EndLoc}
-              onChange={handleInputChange}
+              onChange={handleInputChange} className='FormText'
             />
           </label>
           <br />
-          <label>
-            Upload Image:
-            <input 
-            type="file" 
-            name="image" 
-            accept="image/*" 
-            onChange={handleImageChange} 
+          <label className='Margin'>
+            Upload Image:<t />
+            <input
+              type="file"
+              name="image"
+              accept="image/*"
+              onChange={handleImageChange} className='FormText'
             />
           </label>
         </div>
       )}
 
-{formData.selectedOption === 'walkCycle' && (
+      {formData.selectedOption === 'walkCycle' && (
         <div>
-          <label>
-            Email Id:
+          <br />
+          <label className='Margin'>
+            Email Id:<t />
             <input
               type="text"
               name="EmailId"
               value={formData.EmailId}
-              onChange={handleInputChange}
+              onChange={handleInputChange} className='FormText'
             />
           </label>
           <br />
-          <label>
-            Activity Date:
+          <label className='Margin'>
+            Activity Date:<t />
             <input
               type="Date"
               name="ActivityDate"
               value={formData.ActivityDate}
-              onChange={handleInputChange}
+              onChange={handleInputChange} className='FormText'
             />
           </label>
           <br />
-          <label>
-            Distance:
+          <label className='Margin'>
+            Distance:<t />
             <input
               type="text"
               name="distance"
               value={formData.distance}
-              onChange={handleInputChange}
+              onChange={handleInputChange} className='FormText'
             />
           </label>
           <br />
-          <label>
-            Upload Image:
-            <input 
-            type="file" 
-            name="image" 
-            accept="image/*" 
-            onChange={handleImageChange} 
+          <label className='Margin'>
+            Upload Image:<t />
+            <input
+              type="file"
+              name="image"
+              accept="image/*"
+              onChange={handleImageChange} className='FormText'
             />
           </label>
         </div>
-      )}
+      )
+      }
+
+      <div>
+        <label className='Margin'>
+          <br />
+          <button type="submit" value="Submit" className='submit' onSubmit={submitFormData} />
+        </label>
+      </div>
 
       {/* Display form data */}
       <div>
-        <h2>Form Data:</h2>
+        <h2 className='Margin'>Form Data:</h2>
         <pre>{JSON.stringify(formData, null, 2)}</pre>
       </div>
     </div>
